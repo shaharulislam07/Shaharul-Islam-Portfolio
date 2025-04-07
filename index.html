@@ -169,11 +169,11 @@
     .project-card p {
       color: var(--anime-text);
       font-size: 0.95rem;
+      margin-bottom: 1rem;
     }
     
     .btn {
       display: inline-block;
-      margin-top: 1rem;
       padding: 0.7rem 1.5rem;
       background: linear-gradient(45deg, var(--anime-cyan), var(--anime-darkcyan));
       color: white;
@@ -193,7 +193,6 @@
     }
     
     .social-links {
-      margin-top: 2rem;
       display: flex;
       gap: 1.5rem;
     }
@@ -270,7 +269,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      margin-bottom: 2rem;
     }
     
     .skills-card {
@@ -297,21 +295,38 @@
     }
     
     /* About Section */
-    #about div {
+    .about-content {
       background: var(--anime-card);
-      padding: 2rem;
+      padding: 1.5rem;
       border-radius: 10px;
       box-shadow: var(--anime-shadow);
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .approach-box {
+      background: var(--anime-card);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: var(--anime-shadow);
+      border-left: 5px solid var(--anime-cyan);
     }
     
     /* Contact Section */
-    #contact > div {
+    .contact-box {
       background: var(--anime-card);
-      padding: 2rem;
+      padding: 1.5rem;
       border-radius: 10px;
       box-shadow: var(--anime-shadow);
       border: 2px solid var(--anime-cyan);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
     }
     
     /* Responsive design */
@@ -367,11 +382,11 @@
 
   <section id="about" class="main-section">
     <h2 class="section-title">About Me</h2>
-    <div>
+    <div class="about-content">
       <p>Hello! I'm Md. Shaharul Islam, a passionate 3D texture artist specializing in grungy realism and game assets. With years of experience in the industry, I bring a unique blend of technical skill and artistic vision to every project.</p>
     </div>
     
-    <div style="border-left: 5px solid var(--anime-cyan);">
+    <div class="approach-box">
       <h3 style="color: var(--anime-cyan); margin-bottom: 1rem; font-family: 'Exo 2', sans-serif;">My Artistic Approach</h3>
       <p>I believe textures should tell stories. Every scratch, stain, and weathered surface in my work is carefully crafted to create immersive, believable environments and assets.</p>
     </div>
@@ -428,10 +443,10 @@
   <section id="contact" class="main-section">
     <h2 class="section-title">Contact</h2>
     
-    <div>
+    <div class="contact-box">
       <h3 style="color: var(--anime-cyan); margin-bottom: 1.5rem; text-align: center; font-family: 'Exo 2', sans-serif;">Let's Work Together!</h3>
       
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+      <div class="contact-info">
         <div>
           <h4 style="color: var(--anime-cyan); margin-bottom: 0.5rem;">Email</h4>
           <p>contact.shaharulislam@gmail.com</p>
