@@ -156,7 +156,6 @@
       box-shadow: var(--shadow);
       font-family: 'Exo 2', sans-serif;
       font-size: 0.9rem;
-      border: none;
     }
 
     .btn:hover {
@@ -245,6 +244,114 @@
     .project-card p {
       margin-bottom: 1rem;
       font-size: 0.9rem;
+    }
+
+    /* Resume Section */
+    .resume-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .experience-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .experience-timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--primary);
+    }
+
+    .experience-item {
+      position: relative;
+      padding-bottom: 2rem;
+    }
+
+    .experience-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid var(--primary-dark);
+    }
+
+    .experience-date {
+      font-size: 0.9rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-title {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-company {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-description {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .download-cv {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .cv-download-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+      font-family: 'Exo 2', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cv-download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
+    }
+
+    .cv-download-btn i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    /* Animation for download button */
+    @keyframes downloadBounce {
+      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+      40% {transform: translateY(-10px);}
+      60% {transform: translateY(-5px);}
+    }
+
+    .cv-download-btn:hover i {
+      animation: downloadBounce 1s infinite;
     }
 
     /* Skills Section */
@@ -366,6 +473,7 @@
       <a href="#about">About</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#skills">Skills</a>
+      <a href="#resume">Resume</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -432,6 +540,47 @@
           <div class="skill-item">Material Creation</div>
           <div class="skill-item">Game Asset Optimization</div>
           <div class="skill-item">Photogrammetry Processing</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="section">
+      <h2 class="section-title">Resume & Experience</h2>
+      <div class="resume-container">
+        <div class="experience-timeline">
+          <div class="experience-item">
+            <div class="experience-date">2021 - Present</div>
+            <h3 class="experience-title">Senior 3D Texture Artist</h3>
+            <div class="experience-company">Game Studio XYZ</div>
+            <div class="experience-description">
+              <p>Created high-quality textures and materials for AAA game titles. Specialized in photorealistic surfaces and optimized game assets. Led a team of junior texture artists and established pipeline improvements.</p>
+            </div>
+          </div>
+          
+          <div class="experience-item">
+            <div class="experience-date">2018 - 2021</div>
+            <h3 class="experience-title">3D Texture Artist</h3>
+            <div class="experience-company">Digital Arts Studio</div>
+            <div class="experience-description">
+              <p>Produced textures for various projects including mobile games, architectural visualizations, and product renderings. Developed custom material libraries and streamlined workflow processes.</p>
+            </div>
+          </div>
+          
+          <div class="experience-item">
+            <div class="experience-date">2016 - 2018</div>
+            <h3 class="experience-title">Junior Texture Artist</h3>
+            <div class="experience-company">Creative Media Agency</div>
+            <div class="experience-description">
+              <p>Assisted senior artists in creating textures for various media projects. Learned industry-standard tools and techniques while contributing to commercial projects.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="download-cv">
+          <a href="path/to/your-cv.pdf" class="cv-download-btn" download="Shaharul_Islam_CV.pdf">
+            <i class="fas fa-file-download"></i> Download Full CV
+          </a>
+          <p style="margin-top: 1rem; font-size: 0.9rem;">PDF Format | Updated June 2024</p>
         </div>
       </div>
     </section>
