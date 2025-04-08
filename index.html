@@ -1,484 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Md. Shaharul Islam | 3D Texture Artist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    :root {
-      --primary: #00e5ff;
-      --primary-dark: #00b4cc;
-      --bg: #121212;
-      --card: #1e1e1e;
-      --text: #e0e0e0;
-      --text-light: #ffffff;
-      --shadow: 5px 5px 0px rgba(0,0,0,0.3);
-      --transition: all 0.3s ease;
-    }
+<script>
+// Security measures to prevent right-click, text selection, and dev tools
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('selectstart', e => e.preventDefault());
+document.onkeydown = function(e) {
+  if(e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 73 || e.keyCode === 74)) {
+    return false;
+  }
+};
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+// Dynamic CSS loading
+document.write(`<style type="text/css">${function(){
+  /* Minified CSS */
+  return `:root{--p:#00e5ff;--pd:#00b4cc;--b:#121212;--c:#1e1e1e;--t:#e0e0e0;--tl:#fff;--s:5px 5px 0 rgba(0,0,0,.3);--tr:all .3s ease}*{margin:0;padding:0;box-sizing:border-box}body{background:var(--b);color:var(--t);font-family:'M PLUS Rounded 1c',sans-serif;line-height:1.6;background-image:radial-gradient(circle at 20% 30%,rgba(0,229,255,.05) 0,transparent 25%),radial-gradient(circle at 80% 70%,rgba(0,229,255,.05) 0,transparent 25%)}header{padding:1rem;background:#1a1a1a;position:fixed;width:100%;top:0;z-index:1000;box-shadow:var(--s);border-bottom:3px solid var(--p);text-align:center}header h1{font-family:'Exo 2',sans-serif;font-size:2rem;color:var(--p);margin-bottom:.5rem;text-shadow:2px 2px 0 rgba(0,0,0,.3)}header p{font-size:1rem}nav{margin-top:1rem;display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap}nav a{font-family:'Exo 2',sans-serif;color:#fff;text-decoration:none;font-weight:700;padding:.4rem 1rem;border-radius:50px;background:linear-gradient(45deg,var(--p),var(--pd));box-shadow:var(--s);transition:var(--tr);font-size:.9rem}nav a:hover{transform:translateY(-3px);box-shadow:7px 7px 0 rgba(0,0,0,.3);background:linear-gradient(45deg,var(--pd),var(--p))}.section{padding:6rem 1.5rem 3rem;max-width:1000px;margin:0 auto}.section-title{font-family:'Exo 2',sans-serif;font-size:2rem;margin-bottom:1.5rem;color:var(--p);position:relative;display:inline-block;padding-bottom:.5rem}.section-title::before{content:'';position:absolute;bottom:0;left:0;width:70%;height:4px;background:linear-gradient(90deg,var(--p),var(--pd));border-radius:2px}#home{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}#home h2{font-family:'Exo 2',sans-serif;font-size:2.5rem;color:var(--p);margin-bottom:1.2rem;text-shadow:2px 2px 0 rgba(0,0,0,.3)}#home p{font-size:1.1rem;max-width:700px;margin-bottom:1.5rem}.btn-group{display:flex;gap:1rem;margin-top:1.5rem}.btn{display:inline-block;padding:.6rem 1.25rem;background:linear-gradient(45deg,var(--p),var(--pd));color:#fff;border-radius:50px;text-decoration:none;font-weight:700;transition:var(--tr);box-shadow:var(--s);font-family:'Exo 2',sans-serif;font-size:.9rem}.btn:hover{transform:translateY(-3px);box-shadow:5px 5px 0 rgba(0,0,0,.3)}.btn-outline{background:#333;color:var(--p);border:2px solid var(--p)}.about-content{background:var(--c);padding:1.5rem;border-radius:10px;box-shadow:var(--s);margin-bottom:1.5rem}.highlight-box{background:var(--c);padding:1.5rem;border-radius:10px;box-shadow:var(--s);border-left:5px solid var(--p)}.highlight-box h3{color:var(--p);margin-bottom:.8rem;font-family:'Exo 2',sans-serif}.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}.project-card{background:var(--c);padding:1.5rem;border-radius:10px;transition:var(--tr);box-shadow:var(--s);border:2px solid var(--p);position:relative;overflow:hidden}.project-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:5px;background:linear-gradient(90deg,var(--p),var(--pd))}.project-card:hover{transform:translateY(-8px) rotate(2deg);box-shadow:8px 8px 0 rgba(0,0,0,.3)}.project-card img{width:100%;height:180px;object-fit:cover;border-radius:5px;margin-bottom:1rem;border:2px solid #333;box-shadow:var(--s)}.project-card h3{color:var(--p);margin-bottom:.5rem;font-size:1.2rem}.project-card p{margin-bottom:1rem;font-size:.9rem}.resume-container{display:grid;grid-template-columns:1fr;gap:2rem}.experience-timeline{position:relative;padding-left:2rem}.experience-timeline::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:2px;background:var(--p)}.experience-item{position:relative;padding-bottom:2rem}.experience-item:last-child{padding-bottom:0}.experience-item::before{content:'';position:absolute;left:-2rem;top:5px;width:12px;height:12px;border-radius:50%;background:var(--p);border:2px solid var(--pd)}.experience-date{font-size:.9rem;color:var(--p);margin-bottom:.5rem}.experience-title{font-family:'Exo 2',sans-serif;font-size:1.2rem;color:var(--tl);margin-bottom:.5rem}.experience-company{font-weight:700;margin-bottom:.5rem}.experience-description{font-size:.95rem;line-height:1.6}.download-cv{text-align:center;margin-top:2rem}.cv-download-btn{display:inline-flex;align-items:center;padding:.8rem 1.5rem;background:linear-gradient(45deg,var(--p),var(--pd));color:#fff;border-radius:50px;text-decoration:none;font-weight:700;transition:var(--tr);box-shadow:var(--s);font-family:'Exo 2',sans-serif;position:relative;overflow:hidden}.cv-download-btn:hover{transform:translateY(-3px);box-shadow:5px 5px 0 rgba(0,0,0,.3)}.cv-download-btn i{margin-right:10px;font-size:1.2rem}@keyframes downloadBounce{0%,20%,50%,80%,100%{transform:translateY(0)}40%{transform:translateY(-10px)}60%{transform:translateY(-5px)}}.cv-download-btn:hover i{animation:downloadBounce 1s infinite}.skills-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}.skills-card{background:var(--c);padding:1.5rem;border-radius:10px;box-shadow:var(--s)}.skills-card h3{color:var(--p);margin-bottom:1rem;font-family:'Exo 2',sans-serif}.skill-item{padding:.8rem;margin-bottom:.5rem;background:#333;border-radius:5px;color:var(--tl);font-weight:700;border-left:4px solid var(--p)}.contact-box{background:var(--c);padding:1.5rem;border-radius:10px;box-shadow:var(--s);border:2px solid var(--p);max-width:600px;margin:0 auto}.contact-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-bottom:1.5rem}.social-links{display:flex;gap:1rem;justify-content:center}.social-links a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:#333;color:var(--p);border-radius:50%;font-size:1.2rem;transition:var(--tr);box-shadow:var(--s);border:2px solid var(--p)}.social-links a:hover{transform:translateY(-3px) scale(1.1);color:#fff;background:linear-gradient(45deg,var(--p),var(--pd))}footer{text-align:center;padding:1.5rem;background:#1a1a1a;box-shadow:0 -5px 0 rgba(0,0,0,.3);border-top:3px solid var(--p)}footer p{font-family:'Exo 2',sans-serif;font-size:.9rem}@media (max-width:768px){.section{padding:5rem 1rem 2rem}#home h2{font-size:2rem}.section-title{font-size:1.8rem}.btn-group{flex-direction:column;gap:.8rem}}`;
+}()}</style>`);
 
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'M PLUS Rounded 1c', sans-serif;
-      line-height: 1.6;
-      background-image: 
-        radial-gradient(circle at 20% 30%, rgba(0, 229, 255, 0.05) 0%, transparent 25%),
-        radial-gradient(circle at 80% 70%, rgba(0, 229, 255, 0.05) 0%, transparent 25%);
-    }
+// Obfuscated font loading
+document.write(`<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">`);
 
-    /* Header Styles */
-    header {
-      padding: 1rem;
-      background-color: #1a1a1a;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      box-shadow: var(--shadow);
-      border-bottom: 3px solid var(--primary);
-      text-align: center;
-    }
+// Obfuscated icon loading
+document.write(`<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">`);
+</script>
 
-    header h1 {
-      font-family: 'Exo 2', sans-serif;
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-      text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
-    }
-
-    header p {
-      font-size: 1rem;
-    }
-
-    nav {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      font-family: 'Exo 2', sans-serif;
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
-      background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      font-size: 0.9rem;
-    }
-
-    nav a:hover {
-      transform: translateY(-3px);
-      box-shadow: 7px 7px 0px rgba(0,0,0,0.3);
-      background: linear-gradient(45deg, var(--primary-dark), var(--primary));
-    }
-
-    /* Section Styles */
-    .section {
-      padding: 6rem 1.5rem 3rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      font-family: 'Exo 2', sans-serif;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: var(--primary);
-      position: relative;
-      display: inline-block;
-      padding-bottom: 0.5rem;
-    }
-
-    .section-title::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 70%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-      border-radius: 2px;
-    }
-
-    /* Home Section */
-    #home {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-
-    #home h2 {
-      font-family: 'Exo 2', sans-serif;
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 1.2rem;
-      text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
-    }
-
-    #home p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.6rem 1.25rem;
-      background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-      color: white;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-      font-family: 'Exo 2', sans-serif;
-      font-size: 0.9rem;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
-    }
-
-    .btn-outline {
-      background: #333;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
-
-    /* About Section */
-    .about-content {
-      background: var(--card);
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      margin-bottom: 1.5rem;
-    }
-
-    .highlight-box {
-      background: var(--card);
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      border-left: 5px solid var(--primary);
-    }
-
-    .highlight-box h3 {
-      color: var(--primary);
-      margin-bottom: 0.8rem;
-      font-family: 'Exo 2', sans-serif;
-    }
-
-    /* Portfolio Section */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      background: var(--card);
-      padding: 1.5rem;
-      border-radius: 10px;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-      border: 2px solid var(--primary);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px) rotate(2deg);
-      box-shadow: 8px 8px 0px rgba(0,0,0,0.3);
-    }
-
-    .project-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 5px;
-      margin-bottom: 1rem;
-      border: 2px solid #333;
-      box-shadow: var(--shadow);
-    }
-
-    .project-card h3 {
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    .project-card p {
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
-    }
-
-    /* Resume Section */
-    .resume-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .experience-timeline {
-      position: relative;
-      padding-left: 2rem;
-    }
-
-    .experience-timeline::before {
-      content: '';
-      position: absolute;
-      left: 7px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--primary);
-    }
-
-    .experience-item {
-      position: relative;
-      padding-bottom: 2rem;
-    }
-
-    .experience-item:last-child {
-      padding-bottom: 0;
-    }
-
-    .experience-item::before {
-      content: '';
-      position: absolute;
-      left: -2rem;
-      top: 5px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--primary);
-      border: 2px solid var(--primary-dark);
-    }
-
-    .experience-date {
-      font-size: 0.9rem;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .experience-title {
-      font-family: 'Exo 2', sans-serif;
-      font-size: 1.2rem;
-      color: var(--text-light);
-      margin-bottom: 0.5rem;
-    }
-
-    .experience-company {
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
-
-    .experience-description {
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .download-cv {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .cv-download-btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.8rem 1.5rem;
-      background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-      color: white;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-      font-family: 'Exo 2', sans-serif;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cv-download-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
-    }
-
-    .cv-download-btn i {
-      margin-right: 10px;
-      font-size: 1.2rem;
-    }
-
-    /* Animation for download button */
-    @keyframes downloadBounce {
-      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-      40% {transform: translateY(-10px);}
-      60% {transform: translateY(-5px);}
-    }
-
-    .cv-download-btn:hover i {
-      animation: downloadBounce 1s infinite;
-    }
-
-    /* Skills Section */
-    .skills-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .skills-card {
-      background: var(--card);
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-    }
-
-    .skills-card h3 {
-      color: var(--primary);
-      margin-bottom: 1rem;
-      font-family: 'Exo 2', sans-serif;
-    }
-
-    .skill-item {
-      padding: 0.8rem;
-      margin-bottom: 0.5rem;
-      background: #333;
-      border-radius: 5px;
-      color: var(--text-light);
-      font-weight: bold;
-      border-left: 4px solid var(--primary);
-    }
-
-    /* Contact Section */
-    .contact-box {
-      background: var(--card);
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      border: 2px solid var(--primary);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .contact-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .social-links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      background: #333;
-      color: var(--primary);
-      border-radius: 50%;
-      font-size: 1.2rem;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-      border: 2px solid var(--primary);
-    }
-
-    .social-links a:hover {
-      transform: translateY(-3px) scale(1.1);
-      color: white;
-      background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      background: #1a1a1a;
-      box-shadow: 0 -5px 0px rgba(0,0,0,0.3);
-      border-top: 3px solid var(--primary);
-    }
-
-    footer p {
-      font-family: 'Exo 2', sans-serif;
-      font-size: 0.9rem;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .section {
-        padding: 5rem 1rem 2rem;
-      }
-
-      #home h2 {
-        font-size: 2rem;
-      }
-
-      .section-title {
-        font-size: 1.8rem;
-      }
-
-      .btn-group {
-        flex-direction: column;
-        gap: 0.8rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md. Shaharul Islam | 3D Texture Artist</title>
 </head>
 <body>
-  <header>
-    <h1>Md. Shaharul Islam</h1>
-    <p>3D Texture Artist | Grungy Realism | Game Asset Specialist</p>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#skills">Skills</a>
-      <a href="#resume">Resume</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <main>
+<script>
+// Dynamic content loading with obfuscation
+const loadContent = () => {
+  const sections = {
+    header: `
+    <header>
+      <h1>Md. Shaharul Islam</h1>
+      <p>3D Texture Artist | Grungy Realism | Game Asset Specialist</p>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#skills">Skills</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>`,
+    
+    home: `
     <section id="home" class="section">
       <h2>Bringing Digital Worlds to Life</h2>
       <p>Specializing in high-quality 3D textures with a focus on grungy realism and game-ready assets. Let's create something amazing together!</p>
@@ -486,8 +56,9 @@
         <a href="#portfolio" class="btn">View My Work</a>
         <a href="#contact" class="btn btn-outline">Contact Me</a>
       </div>
-    </section>
-
+    </section>`,
+    
+    about: `
     <section id="about" class="section">
       <h2 class="section-title">About Me</h2>
       <div class="about-content">
@@ -497,11 +68,12 @@
         <h3>My Artistic Approach</h3>
         <p>I believe textures should tell stories. Every scratch, stain, and weathered surface in my work is carefully crafted to create immersive, believable environments and assets.</p>
       </div>
-    </section>
-
+    </section>`,
+    
+    portfolio: `
     <section id="portfolio" class="section">
       <h2 class="section-title">Portfolio</h2>
-      <p style="margin-bottom: 1.5rem;">Here are some of my recent texture projects:</p>
+      <p style="margin-bottom:1.5rem">Here are some of my recent texture projects:</p>
       <div class="portfolio-grid">
         <div class="project-card">
           <img src="https://via.placeholder.com/600x400/333333/00b4cc?text=Industrial+Textures" alt="Industrial Textures">
@@ -522,19 +94,20 @@
           <a href="#" class="btn">View Project</a>
         </div>
       </div>
-    </section>
-
+    </section>`,
+    
+    skills: `
     <section id="skills" class="section">
       <h2 class="section-title">Skills</h2>
       <div class="skills-container">
-        <div class="skills-card" style="border-top: 5px solid var(--primary);">
+        <div class="skills-card" style="border-top:5px solid var(--p)">
           <h3>Software</h3>
           <div class="skill-item">Substance Painter</div>
           <div class="skill-item">Substance Designer</div>
           <div class="skill-item">Unreal Engine</div>
           <div class="skill-item">Marmoset Toolbag</div>
         </div>
-        <div class="skills-card" style="border-top: 5px solid var(--primary-dark);">
+        <div class="skills-card" style="border-top:5px solid var(--pd)">
           <h3>Specialties</h3>
           <div class="skill-item">Grungy/Realistic Textures</div>
           <div class="skill-item">Material Creation</div>
@@ -542,8 +115,9 @@
           <div class="skill-item">Photogrammetry Processing</div>
         </div>
       </div>
-    </section>
-
+    </section>`,
+    
+    resume: `
     <section id="resume" class="section">
       <h2 class="section-title">Resume & Experience</h2>
       <div class="resume-container">
@@ -556,7 +130,6 @@
               <p>Created high-quality textures and materials for AAA game titles. Specialized in photorealistic surfaces and optimized game assets. Led a team of junior texture artists and established pipeline improvements.</p>
             </div>
           </div>
-          
           <div class="experience-item">
             <div class="experience-date">2018 - 2021</div>
             <h3 class="experience-title">3D Texture Artist</h3>
@@ -565,7 +138,6 @@
               <p>Produced textures for various projects including mobile games, architectural visualizations, and product renderings. Developed custom material libraries and streamlined workflow processes.</p>
             </div>
           </div>
-          
           <div class="experience-item">
             <div class="experience-date">2016 - 2018</div>
             <h3 class="experience-title">Junior Texture Artist</h3>
@@ -575,20 +147,20 @@
             </div>
           </div>
         </div>
-        
         <div class="download-cv">
           <a href="path/to/your-cv.pdf" class="cv-download-btn" download="Shaharul_Islam_CV.pdf">
             <i class="fas fa-file-download"></i> Download Full CV
           </a>
-          <p style="margin-top: 1rem; font-size: 0.9rem;">PDF Format | Updated June 2024</p>
+          <p style="margin-top:1rem;font-size:.9rem">PDF Format | Updated June 2024</p>
         </div>
       </div>
-    </section>
-
+    </section>`,
+    
+    contact: `
     <section id="contact" class="section">
       <h2 class="section-title">Contact</h2>
       <div class="contact-box">
-        <h3 style="text-align: center;">Let's Work Together!</h3>
+        <h3 style="text-align:center">Let's Work Together!</h3>
         <div class="contact-info">
           <div>
             <h4>Email</h4>
@@ -603,38 +175,63 @@
             </div>
           </div>
         </div>
-        <a href="mailto:contact.shaharulislam@gmail.com" class="btn" style="display: block; text-align: center; margin-top: 1.5rem;">
-          <i class="fas fa-envelope" style="margin-right: 8px;"></i> Send Message
+        <a href="mailto:contact.shaharulislam@gmail.com" class="btn" style="display:block;text-align:center;margin-top:1.5rem">
+          <i class="fas fa-envelope" style="margin-right:8px"></i> Send Message
         </a>
       </div>
-    </section>
-  </main>
+    </section>`,
+    
+    footer: `
+    <footer>
+      <p>© ${new Date().getFullYear()} Md. Shaharul Islam - 3D Texture Artist</p>
+      <p style="margin-top:.5rem">Specializing in Grungy Realism and Game Asset Textures</p>
+    </footer>`
+  };
 
-  <footer>
-    <p>© 2025 Md. Shaharul Islam - 3D Texture Artist</p>
-    <p style="margin-top: 0.5rem;">Specializing in Grungy Realism and Game Asset Textures</p>
-  </footer>
+  // Build DOM
+  document.body.innerHTML = sections.header + '<main>' + 
+    sections.home + sections.about + sections.portfolio + 
+    sections.skills + sections.resume + sections.contact + 
+    '</main>' + sections.footer;
 
-  <script>
-    // Project card hover effect
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-8px) rotate(2deg)';
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
+  // Initialize interactivity
+  initInteractivity();
+};
+
+// Initialize interactive elements
+const initInteractivity = () => {
+  // Project card hover effect
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-8px) rotate(2deg)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  // Smooth scrolling for navigation
+  document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
       });
     });
+  });
+};
 
-    // Smooth scrolling for navigation
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
+// Load content after slight delay
+setTimeout(loadContent, 50);
+</script>
+
+<!-- Cloudflare protection (must be configured in Cloudflare dashboard) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cf-util/1.1.0/cf-util.min.js" defer></script>
+
+<!-- No-JS fallback -->
+<noscript>
+  <style>body{display:none!important}</style>
+  <meta http-equiv="refresh" content="0;url=/nojs.html">
+</noscript>
 </body>
 </html>
