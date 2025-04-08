@@ -145,9 +145,15 @@
       text-align: left;
     }
     
-    .profile-image {
+    .profile-image-container {
+      position: relative;
       width: 280px;
       height: 280px;
+    }
+    
+    .profile-image {
+      width: 100%;
+      height: 100%;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid var(--primary);
@@ -492,18 +498,53 @@
       }
       
       .hero-container {
-        flex-direction: column-reverse;
+        flex-direction: column;
         text-align: center;
+        gap: 2rem;
       }
       
       .hero-content {
         text-align: center;
+        width: 100%;
       }
       
-      .profile-image {
-        width: 200px;
-        height: 200px;
+      .profile-image-container {
+        width: 220px;
+        height: 220px;
+        margin: 0 auto;
       }
+      
+      /* Enhanced mobile visibility */
+      .profile-image {
+        border-width: 3px;
+        box-shadow: 0 0 0 3px var(--primary), var(--shadow);
+      }
+    }
+    
+    /* Extra small devices */
+    @media (max-width: 400px) {
+      .profile-image-container {
+        width: 180px;
+        height: 180px;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      #home h2 {
+        font-size: 1.8rem;
+      }
+    }
+    
+    /* Loading animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .section {
+      animation: fadeIn 0.6s ease-out forwards;
     }
   </style>
 </head>
@@ -522,9 +563,14 @@
   </header>
 
   <main>
-    <!-- Home Section with your image -->
+    <!-- Home Section with Optimized Profile Photo -->
     <section id="home" class="section">
       <div class="hero-container">
+        <div class="profile-image-container">
+          <img src="IMG_20220612_214002.jpg" 
+               alt="Md. Shaharul Islam - 3D Texture Artist" 
+               class="profile-image">
+        </div>
         <div class="hero-content">
           <h2>Bringing Digital Worlds to Life</h2>
           <p>Specializing in high-quality 3D textures with a focus on grungy realism and game-ready assets. Let's create something amazing together!</p>
@@ -533,7 +579,6 @@
             <a href="#contact" class="btn btn-outline">Contact Me</a>
           </div>
         </div>
-        <img src="IMG_20220612_214002.jpg" alt="Md. Shaharul Islam - 3D Texture Artist" class="profile-image">
       </div>
     </section>
 
@@ -695,6 +740,44 @@
         card.style.transform = '';
       });
     });
+    
+    // Mobile menu toggle (optional)
+    const mobileMenuToggle = document.createElement('button');
+    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    mobileMenuToggle.style.display = 'none';
+    mobileMenuToggle.style.position = 'fixed';
+    mobileMenuToggle.style.top = '10px';
+    mobileMenuToggle.style.right = '10px';
+    mobileMenuToggle.style.zIndex = '1100';
+    mobileMenuToggle.style.background = 'var(--primary)';
+    mobileMenuToggle.style.border = 'none';
+    mobileMenuToggle.style.borderRadius = '50%';
+    mobileMenuToggle.style.width = '40px';
+    mobileMenuToggle.style.height = '40px';
+    mobileMenuToggle.style.color = 'white';
+    mobileMenuToggle.style.fontSize = '1.2rem';
+    mobileMenuToggle.style.cursor = 'pointer';
+    document.body.appendChild(mobileMenuToggle);
+    
+    function checkMobileMenu() {
+      if (window.innerWidth <= 768) {
+        mobileMenuToggle.style.display = 'flex';
+        mobileMenuToggle.style.alignItems = 'center';
+        mobileMenuToggle.style.justifyContent = 'center';
+        document.querySelector('header nav').style.display = 'none';
+      } else {
+        mobileMenuToggle.style.display = 'none';
+        document.querySelector('header nav').style.display = 'flex';
+      }
+    }
+    
+    mobileMenuToggle.addEventListener('click', () => {
+      const nav = document.querySelector('header nav');
+      nav.style.display = nav.style.display === 'none' ? 'flex' : 'none';
+    });
+    
+    window.addEventListener('resize', checkMobileMenu);
+    checkMobileMenu();
   </script>
 </body>
 </html>
