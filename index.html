@@ -595,7 +595,7 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="section">
+   <section id="portfolio" class="section">
   <h2 class="section-title">Portfolio</h2>
   <div id="artstation-portfolio" class="portfolio-grid"></div>
   <div style="text-align:center; margin-top: 2rem;">
@@ -608,6 +608,7 @@
     const container = document.getElementById("artstation-portfolio");
     const loadMoreBtn = document.getElementById("load-more");
 
+    // Display message for local file preview
     if (location.protocol === 'file:') {
       container.innerHTML = `<p style="color:orange; font-weight: bold;">Portfolio preview won’t load locally. Please upload to Netlify or GitHub Pages to see your ArtStation projects here.</p>`;
       if (loadMoreBtn) loadMoreBtn.style.display = 'none';
@@ -619,7 +620,7 @@
       if (!res.ok) throw new Error('Failed to fetch projects');
 
       const data = await res.json();
-      const projects = showAll ? data.data : data.data.slice(0, 5);
+      const projects = showAll ? data.data : data.data.slice(0, 6); // Show more projects if requested
 
       container.innerHTML = '';
       projects.forEach(project => {
@@ -634,6 +635,7 @@
 
         container.appendChild(card);
 
+        // Fetch and embed additional project data
         fetch(`https://www.artstation.com/projects/${project.hash}.json`)
           .then(res => res.json())
           .then(projData => {
@@ -647,147 +649,23 @@
           });
       });
 
+      // Hide the "See More" button if all projects are loaded
       if (showAll && loadMoreBtn) {
         loadMoreBtn.style.display = 'none';
       } else if (loadMoreBtn) {
         loadMoreBtn.onclick = () => loadArtstationProjects(username, true);
       }
     } catch (err) {
-      console.error("ArtStation Load Error:", err);
+      console.error("Failed to load ArtStation projects:", err);
       container.innerHTML = '<p style="color:red; font-weight:bold;">Could not load ArtStation portfolio. Please try again later.</p>';
       if (loadMoreBtn) loadMoreBtn.style.display = 'none';
     }
   }
 
+  // Initialize with your ArtStation username
   loadArtstationProjects("shaharulislam");
 </script>
 
-<script>
-  async function loadArtstationProjects(username) {
-    const container = document.getElementById("artstation-portfolio");
-
-    if (location.protocol === 'file:') {
-      container.innerHTML = `<p style="color:orange; font-weight: bold;">Portfolio preview won’t load locally. Please upload to Netlify or GitHub Pages to see your ArtStation projects here.</p>`;
-      return;
-    }
-
-    try {
-      const res = await fetch(`https://www.artstation.com/users/${username}/projects.json`);
-      if (!res.ok) throw new Error('Failed to fetch projects');
-
-      const data = await res.json();
-      data.data.slice(0, 6).forEach(project => {
-        const card = document.createElement("div");
-        card.className = "project-card";
-
-        card.innerHTML = `
-          <img src="${project.cover.medium_url}" alt="${project.title}" />
-          <h3>${project.title}</h3>
-          <div class="project-embed" data-project-id="${project.id}"></div>
-        `;
-
-        container.appendChild(card);
-
-        fetch(`https://www.artstation.com/projects/${project.hash}.json`)
-          .then(res => res.json())
-          .then(projData => {
-            const embedDiv = card.querySelector('.project-embed');
-            embedDiv.innerHTML = `
-              <iframe src="https://www.artstation.com/embed/${project.hash}" 
-                width="100%" height="480" frameborder="0" allowfullscreen
-                style="border-radius: 8px; margin-top: 1rem;">
-              </iframe>
-            `;
-          });
-      });
-    } catch (err) {
-      console.error("ArtStation Load Error:", err);
-      container.innerHTML = '<p style="color:red; font-weight:bold;">Could not load ArtStation portfolio. Please try again later.</p>';
-    }
-  }
-
-  loadArtstationProjects("shaharulislam");
-</script>
-
-<script>
-  async function loadArtstationProjects(username) {
-    try {
-      const res = await fetch(`https://www.artstation.com/users/${username}/projects.json`);
-      const data = await res.json();
-      const container = document.getElementById("artstation-portfolio");
-
-      data.data.slice(0, 6).forEach(project => {
-        const card = document.createElement("div");
-        card.className = "project-card";
-
-        card.innerHTML = `
-          <img src="${project.cover.medium_url}" alt="${project.title}" />
-          <h3>${project.title}</h3>
-          <div class="project-embed" data-project-id="${project.id}"></div>
-        `;
-
-        container.appendChild(card);
-
-        fetch(`https://www.artstation.com/projects/${project.hash}.json`)
-          .then(res => res.json())
-          .then(projData => {
-            const embedDiv = card.querySelector('.project-embed');
-            embedDiv.innerHTML = `
-              <iframe src="https://www.artstation.com/embed/${project.hash}" 
-                width="100%" height="480" frameborder="0" allowfullscreen
-                style="border-radius: 8px; margin-top: 1rem;">
-              </iframe>
-            `;
-          });
-      });
-    } catch (err) {
-      console.error("Failed to load ArtStation projects:", err);
-      document.getElementById("artstation-portfolio").innerHTML = '<p>Could not load portfolio. Try again later.</p>';
-    }
-  }
-
-  loadArtstationProjects("shaharulislam");
-</script>
-
-<script>
-  async function loadArtstationProjects(username) {
-    try {
-      const res = await fetch(`https://www.artstation.com/users/${username}/projects.json`);
-      const data = await res.json();
-      const container = document.getElementById("artstation-portfolio");
-
-      data.data.slice(0, 6).forEach(project => {
-        const card = document.createElement("div");
-        card.className = "project-card";
-
-        card.innerHTML = `
-          <img src="${project.cover.medium_url}" alt="${project.title}" />
-          <h3>${project.title}</h3>
-          <div class="project-embed" data-project-id="${project.id}"></div>
-        `;
-
-        container.appendChild(card);
-
-        fetch(`https://www.artstation.com/projects/${project.hash}.json`)
-          .then(res => res.json())
-          .then(projData => {
-            const embedDiv = card.querySelector('.project-embed');
-            embedDiv.innerHTML = `
-              <iframe src="https://www.artstation.com/embed/${project.hash}" 
-                width="100%" height="480" frameborder="0" allowfullscreen
-                style="border-radius: 8px; margin-top: 1rem;">
-              </iframe>
-            `;
-          });
-      });
-    } catch (err) {
-      console.error("Failed to load ArtStation projects:", err);
-      document.getElementById("artstation-portfolio").innerHTML = '<p>Could not load portfolio. Try again later.</p>';
-    }
-  }
-
-  loadArtstationProjects("shaharulislam");
-</script>
 
     <!-- Skills Section -->
     <section id="skills" class="section">
