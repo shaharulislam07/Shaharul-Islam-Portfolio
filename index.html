@@ -598,41 +598,34 @@
     <!-- Portfolio Section -->
     
 <!-- Portfolio Section -->
-<section id="portfolio" class="section">
+<section id="portfolio">
   <h2 class="section-title">Portfolio</h2>
-  <p style="margin-bottom:1.5rem">Here are some of my recent texture projects from ArtStation:</p>
-  <div id="artstation-portfolio" class="portfolio-grid">
-    <p>Loading portfolio items...</p>
-  </div>
+  <div id="artstation-portfolio" class="portfolio-grid"></div>
 </section>
 
 <script>
   async function loadArtstationProjects(username) {
-    try {
-      const res = await fetch(`https://www.artstation.com/users/${username}/projects.json`);
-      if (!res.ok) throw new Error("Network response was not ok");
+    const res = await fetch(`https://www.artstation.com/users/${username}/projects.json`);
+    const data = await res.json();
+    const container = document.getElementById("artstation-portfolio");
 
-      const data = await res.json();
-      const container = document.getElementById("artstation-portfolio");
-      container.innerHTML = ""; // Clear loading message
+    data.data.slice(0, 6).forEach(project => {
+      const card = document.createElement("div");
+      card.className = "project-card";
 
-      data.data.slice(0, 6).forEach(async project => {
-        const card = document.createElement("div");
-        card.className = "project-card";
+      card.innerHTML = `
+        <img src="${project.cover.medium_url}" alt="${project.title}" />
+        <h3>${project.title}</h3>
+        <p>${project.tools.join(", ") || "ArtStation Project"}</p>
+        <div class="project-embed" data-project-id="${project.id}"></div>
+      `;
 
-        card.innerHTML = `
-          <img src="${project.cover.medium_url}" alt="${project.title}" />
-          <h3>${project.title}</h3>
-          <p>${project.tools?.join(", ") || "ArtStation Project"}</p>
-          <div class="project-embed" data-project-id="${project.id}"></div>
-        `;
+      container.appendChild(card);
 
-        container.appendChild(card);
-
-        try {
-          const projRes = await fetch(`https://www.artstation.com/projects/${project.hash}.json`);
-          const projData = await projRes.json();
-
+      // Load iframe content for preview inside the page (clean look)
+      fetch(`https://www.artstation.com/projects/${project.hash}.json`)
+        .then(res => res.json())
+        .then(projData => {
           const embedDiv = card.querySelector('.project-embed');
           embedDiv.innerHTML = `
             <iframe src="https://www.artstation.com/embed/${project.hash}" 
@@ -640,42 +633,12 @@
               style="border-radius: 8px; margin-top: 1rem;">
             </iframe>
           `;
-        } catch (err) {
-          console.error("Failed to load embedded project:", err);
-        }
-      });
-    } catch (err) {
-      console.error("Failed to load ArtStation projects:", err);
-      document.getElementById("artstation-portfolio").innerHTML = `<p>Unable to load portfolio items.</p>`;
-    }
+        });
+    });
   }
 
   loadArtstationProjects("shaharulislam");
 </script>
-
-      <h2 class="section-title">Portfolio</h2>
-      <p style="margin-bottom:1.5rem">Here are some of my recent texture projects:</p>
-      <div class="portfolio-grid">
-        <div class="project-card">
-          <img src="https://via.placeholder.com/600x400/333333/00b4cc?text=Industrial+Textures" alt="Industrial Textures">
-          <h3>Industrial Environment</h3>
-          <p>High-detail grungy textures for industrial game assets. Created in Substance Painter with custom material presets.</p>
-          <a href="#" class="btn">View Project</a>
-        </div>
-        <div class="project-card">
-          <img src="https://via.placeholder.com/600x400/333333/00b4cc?text=Weathered+Wood" alt="Weathered Wood">
-          <h3>Weathered Wood Collection</h3>
-          <p>Procedural wood textures with realistic aging and damage effects. Made in Substance Designer.</p>
-          <a href="#" class="btn">View Project</a>
-        </div>
-        <div class="project-card">
-          <img src="https://via.placeholder.com/600x400/333333/00b4cc?text=Sci-Fi+Assets" alt="Sci-Fi Assets">
-          <h3>Sci-Fi Asset Pack</h3>
-          <p>Next-gen sci-fi textures with customizable wear patterns. Implemented in Unreal Engine 5.</p>
-          <a href="#" class="btn">View Project</a>
-        </div>
-      </div>
-    </section>
 
     <!-- Skills Section -->
     <section id="skills" class="section">
